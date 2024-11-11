@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="us_messenger.MessengerRecipients">
+        <div class="o-us-messenger-MessengerRecipient" t-att-data-partner-id="props.recipient.persona?.id ? props.recipient.persona.id : false" >
+            <div class="form-check">
+                <input t-attf-id="{{ props.recipient.id }}_checkbox_messenger" class="form-check-input" type="checkbox" t-att-checked="props.recipient.checked" t-on-change="onChangeCheckbox"/>
+                <label class="form-check-label" t-attf-for="{{ props.recipient.id }}_checkbox_messenger">
+                    <t t-if="props.recipient.name" t-esc="props.recipient.name"/>
+                    <t t-if="props.recipient.type_messenger">
+                        (<t t-esc="props.recipient.type_messenger"/>)
+                    </t>
+                </label>
+            </div>
+        </div>
+    </t>
+</templates>

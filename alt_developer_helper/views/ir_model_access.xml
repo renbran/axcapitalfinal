@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_model_access_developer_helper_tree_edition_inherit" model="ir.ui.view">
+            <field name="name">ir_model_access_developer_helper.tree_edition</field>
+            <field name="model">ir.model.access</field>
+            <field name="inherit_id" ref="base.ir_access_view_tree_edition"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="xml_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="ir_model_access_developer_helper_tree_inherit" model="ir.ui.view">
+            <field name="name">ir_model_access_developer_helper.tree</field>
+            <field name="model">ir.model.access</field>
+            <field name="inherit_id" ref="base.ir_access_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="xml_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

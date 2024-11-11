@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <menuitem
+        id="messenger_menu"
+        web_icon="us_messenger,static/description/icon.png"
+        name="Messengers"
+        groups="us_messenger_group_user"
+    />
+    <menuitem
+        id="all_message_and_newsletter_with_bots"
+        name="All Messages"
+        parent="messenger_menu"
+        sequence="20"
+    />
+</odoo>

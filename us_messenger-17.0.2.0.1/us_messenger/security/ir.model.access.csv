@@ -1,0 +1,45 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_us_messenger_project_user,us.messenger.project user,model_us_messenger_project,us_messenger_group_user,0,0,0,0
+access_us_messenger_project_dev,us.messenger.project dev,model_us_messenger_project,us_messenger_group_dev,1,1,0,1
+access_us_messenger_project_manager,us.messenger.project manager,model_us_messenger_project,us_messenger_group_manager,1,1,1,1
+access_us_messenger_task_user,us.messenger.task user,model_us_messenger_task,us_messenger_group_user,1,0,0,0
+access_us_messenger_task_dev,us.messenger.task dev,model_us_messenger_task,us_messenger_group_dev,1,1,1,1
+access_us_messenger_task_manager,us.messenger.task manager,model_us_messenger_task,us_messenger_group_manager,1,1,1,1
+access_us_messenger_trigger_automation_user,us.messenger.trigger.automation user,model_us_messenger_trigger_automation,us_messenger_group_user,1,0,0,0
+access_us_messenger_trigger_automation_dev,us.messenger.trigger.automation dev,model_us_messenger_trigger_automation,us_messenger_group_dev,1,1,1,1
+access_us_messenger_trigger_automation_manager,us.messenger.trigger.automation manager,model_us_messenger_trigger_automation,us_messenger_group_manager,1,1,1,1
+access_us_messenger_trigger_button_user,us.messenger.trigger.button user,model_us_messenger_trigger_button,us_messenger_group_user,1,0,0,0
+access_us_messenger_trigger_button_dev,us.messenger.trigger.button dev,model_us_messenger_trigger_button,us_messenger_group_dev,1,1,1,1
+access_us_messenger_trigger_button_manager,us.messenger.trigger.button manager,model_us_messenger_trigger_button,us_messenger_group_manager,1,1,1,1
+access_us_messenger_trigger_cron_user,us.messenger.trigger.cron user,model_us_messenger_trigger_cron,us_messenger_group_user,1,0,0,0
+access_us_messenger_trigger_cron_dev,us.messenger.trigger.cron dev,model_us_messenger_trigger_cron,us_messenger_group_dev,1,1,1,1
+access_us_messenger_trigger_cron_manager,us.messenger.trigger.cron manager,model_us_messenger_trigger_cron,us_messenger_group_manager,1,1,1,1
+access_us_messenger_trigger_webhook_user,us.messenger.trigger.webhook user,model_us_messenger_trigger_webhook,us_messenger_group_user,1,0,0,0
+access_us_messenger_trigger_webhook_dev,us.messenger.trigger.webhook dev,model_us_messenger_trigger_webhook,us_messenger_group_dev,1,1,1,1
+access_us_messenger_trigger_webhook_manager,us.messenger.trigger.webhook manager,model_us_messenger_trigger_webhook,us_messenger_group_manager,1,1,1,1
+access_us_messenger_job_user,us.messenger.job user,model_us_messenger_job,us_messenger_group_user,0,0,0,0
+access_us_messenger_job_dev,us.messenger.job dev,model_us_messenger_job,us_messenger_group_dev,1,0,0,0
+access_us_messenger_job_manager,us.messenger.job manager,model_us_messenger_job,us_messenger_group_manager,1,1,1,1
+access_us_messenger_link_user,us.messenger.link user,model_us_messenger_link,us_messenger_group_user,0,0,0,0
+access_us_messenger_link_dev,us.messenger.link dev,model_us_messenger_link,us_messenger_group_dev,1,0,0,0
+access_us_messenger_link_manager,us.messenger.link manager,model_us_messenger_link,us_messenger_group_manager,1,1,1,1
+access_us_messenger_project_param_user,us.messenger.project.param user,model_us_messenger_project_param,us_messenger_group_user,1,0,0,0
+access_us_messenger_project_param_dev,us.messenger.project.param dev,model_us_messenger_project_param,us_messenger_group_dev,1,1,1,1
+access_us_messenger_project_param_manager,us.messenger.project.param manager,model_us_messenger_project_param,us_messenger_group_manager,1,1,1,1
+access_us_messenger_project_text_user,us.messenger.project.text user,model_us_messenger_project_text,us_messenger_group_user,1,0,0,0
+access_us_messenger_project_text_dev,us.messenger.project.text dev,model_us_messenger_project_text,us_messenger_group_dev,1,1,1,1
+access_us_messenger_project_text_manager,us.messenger.project.text manager,model_us_messenger_project_text,us_messenger_group_manager,1,1,1,1
+access_us_messenger_project_context_user,us.messenger.project.context user,model_us_messenger_project_context,us_messenger_group_user,1,0,0,0
+access_us_messenger_project_context_dev,us.messenger.project.context dev,model_us_messenger_project_context,us_messenger_group_dev,1,1,1,1
+access_us_messenger_partner_user,us.messenger.partner user,model_us_messenger_partner,us_messenger_group_user,1,0,0,0
+access_us_messenger_partner_dev,us.messenger.partner dev,model_us_messenger_partner,us_messenger_group_dev,1,0,0,0
+access_us_messenger_partner_manager,us.messenger.partner manager,model_us_messenger_partner,us_messenger_group_manager,1,1,1,1
+access_us_messenger_mass_mailing_user,us.messenger.mass.mailing user,model_us_messenger_mass_mailing,us_messenger_group_user,0,0,0,0
+access_us_messenger_mass_mailing_manager,us.messenger.mass.mailing manager,model_us_messenger_mass_mailing,us_messenger_group_manager,1,0,0,0
+access_us_messenger_mass_mailing_dev,us.messenger.mass.mailing dev,model_us_messenger_mass_mailing,us_messenger_group_dev,1,1,1,1
+access_mail_message_user,mail.message user,model_mail_message,us_messenger_group_user,0,0,0,0
+access_mail_message_manager,mail.message manager,model_mail_message,us_messenger_group_manager,1,0,0,0
+access_mail_message_dev,mail.message dev,model_mail_message,us_messenger_group_dev,1,1,1,1
+
+
+

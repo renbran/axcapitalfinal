@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="module_category_us_messenger" model="ir.module.category">
+            <field name="name">Us messenger</field>
+            <field name="description">
+                User: read-only access;
+            Developer: restricted write access;
+            Administrator: same as Developer, but access to secure staff.
+            </field>
+        </record>
+        <record id="us_messenger_group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_us_messenger" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+        <record id="us_messenger_group_dev" model="res.groups">
+            <field name="name">Developer</field>
+            <field name="category_id" ref="module_category_us_messenger" />
+            <field name="implied_ids" eval="[(4, ref('us_messenger.us_messenger_group_user'))]" />
+        </record>
+        <record id="us_messenger_group_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="module_category_us_messenger" />
+            <field name="implied_ids" eval="[(4, ref('us_messenger.us_messenger_group_dev'))]" />
+        </record>
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('us_messenger.us_messenger_group_manager'))]" />
+        </record>
+
+        <record id="mail_message_record_rule_user" model="ir.rule">
+            <field name="name">Record Rule for user</field>
+            <field ref="model_mail_message" name="model_id"/>
+            <field name="domain_force">[
+                '|',
+                    '&amp;',
+                        ('model','=','mail.channel'),
+                        '|',
+                            ('author_id', '=', user.partner_id.id),
+                            ('partner_ids','=', user.partner_id.id),
+                    ('model','!=','mail.channel'),
+                ]</field>
+            <field name="groups" eval="[(4, ref('us_messenger.us_messenger_group_user'))]"/>
+        </record>
+
+        <record id="mail_message_record_rule_admin" model="ir.rule">
+            <field name="name">Record Rule for admin</field>
+            <field ref="model_mail_message" name="model_id"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4, ref('us_messenger.us_messenger_group_manager'))]"/>
+        </record>
+
+    </data>
+    <data noupdate="1">
+        <record id="base.default_user" model="res.users">
+            <field name="groups_id" eval="[(4, ref('us_messenger.us_messenger_group_manager'))]" />
+        </record>
+        <record id="messenger_comp_rule" model="ir.rule">
+            <field name="name">Messengers multi-company</field>
+            <field name="model_id" ref="model_us_messenger_project" />
+            <field name="global" eval="True" />
+            <field
+                name="domain_force"
+            >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

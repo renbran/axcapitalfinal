@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dynamic_report_configure,dynamic_report_configure,model_dynamic_report_configure,,1,1,1,1
+access_dynamic_report_field,dynamic_report_field,model_dynamic_report_field,,1,1,1,1

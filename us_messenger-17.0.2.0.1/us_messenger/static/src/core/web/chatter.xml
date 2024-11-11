@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//SuggestedRecipientsList" position="after">
+            <MessengerRecipientsList t-if="props.hasFollowers and state.composerType !== 'note'" className="'px-3'" styleString="'margin-left:48px;'" thread="state.thread"/>
+        </xpath>
+    </t>
+</templates>

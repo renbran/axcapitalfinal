@@ -1,0 +1,8 @@
+.idea
+__pycache__
+/models/__pycache__
+/controllers/__pycache__
+/data/__pycache__
+/reports/__pycache__
+/wizards/__pycache__
+/demo/__pycache__

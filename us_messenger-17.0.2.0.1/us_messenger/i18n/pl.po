@@ -1,0 +1,2040 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* us_messenger
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-26 11:25+0000\n"
+"PO-Revision-Date: 2024-03-26 11:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: us_messenger
+#: model:ir.module.category,description:us_messenger.module_category_us_messenger
+msgid ""
+"\n"
+"                User: read-only access;\n"
+"            Developer: restricted write access;\n"
+"            Administrator: same as Developer, but access to secure staff.\n"
+"            "
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__common_code
+msgid ""
+"\n"
+"        A place for helpers and constants.\n"
+"\n"
+"        You can add here a function or variable, that don't start with underscore and then reuse it in task's code.\n"
+"    "
+msgstr ""
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_link.py:0
+#, python-format
+msgid "%s link already exists: %s=%s, %s=%s"
+msgstr ""
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_trigger_cron.py:0
+#, python-format
+msgid "%s: every %s %s"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid ""
+"<em>\n"
+"                                    # Put here a code that will be accesable from any\n"
+"                                    task code\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid ""
+"<em>\n"
+"                                    # The code may use functions and variables from\n"
+"                                    Project's Shared Code\n"
+"                                </em>\n"
+"                                <em class=\"oe_edit_only\">\n"
+"                                    <br/>\n"
+"                                    # Hint: if you miss some code editor features, just\n"
+"                                    copy the code to your lovely editor, update there\n"
+"                                    and paste here\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid ""
+"<em>\n"
+"                                    <code>handle_button()</code>\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid ""
+"<em>\n"
+"                                    <code>handle_cron()</code>\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid ""
+"<em>\n"
+"                                    <code>handle_db(records)</code>\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid ""
+"<em>\n"
+"                                    <code>handle_webhook(httprequest)</code>\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid ""
+"<em>\n"
+"                                    Hint: Cron, Webhooks and DB Triggers are not\n"
+"                                    executed\n"
+"                                    until both the Project and the Task are active (i.e.\n"
+"                                    not Archived)\n"
+"                                </em>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_kanban
+msgid ""
+"<i class=\"fa fa-circle\" style=\"color: #0eec84; width: 2px; height: 2px;\"/>\n"
+"                                    <span style=\"margin-left: 15px\">Online</span>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_kanban
+msgid ""
+"<i class=\"fa fa-circle\" style=\"color: #ff3333; width: 2px; height: 2px;\"/>\n"
+"                                    <span style=\"margin-left: 15px\">Offline</span>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+msgid ""
+"<span class=\"oe_grey oe_inline\">\n"
+"                                    The job is restarted only if code raises\n"
+"                                    <code>RetryableJobError</code>\n"
+"                                    exception. On\n"
+"                                    manual restarting the counter is reset.\n"
+"                                </span>"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_kanban
+msgid "<span>Users: </span>"
+msgstr "<span>Użytkownicy: </span>"
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__website_published
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__website_published
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__website_published
+msgid ""
+"A code server action can be executed from the website, using a dedicated "
+"controller. The address is <base>/website/action/<website_path>. Set this "
+"field as True to allow users to run this action. If it is set to False the "
+"action cannot be run through the website."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project_param__initial_value
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project_text__initial_value
+msgid ""
+"A virtual field that, during writing, stores the value in the value field, "
+"but only if it is empty.              It's used during module upgrade to "
+"prevent overwriting parameter values. "
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__help
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__help
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__help
+msgid "Action Description"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__name
+msgid "Action Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__action_server_id
+msgid "Action Server"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__state
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__state
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__state
+msgid "Action To Do"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__type
+msgid "Action Type"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__active
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__active
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_trigger_cron_view_form
+msgid "Active"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_project__state__active_webhook
+msgid "Active Webhook"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_type_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_type_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_type_id
+msgid "Activity"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_user_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_user_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_user_type
+msgid "Activity User Type"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__partner_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__partner_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__partner_ids
+msgid "Add Followers"
+msgstr ""
+
+#. module: us_messenger
+#: model:res.groups,name:us_messenger.us_messenger_group_manager
+msgid "Administrator"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Advanced"
+msgstr "Dla programistów"
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.action_us_messenger_mail_message
+#: model:ir.ui.menu,name:us_messenger.all_message_and_newsletter_with_bots
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_tree
+msgid "All Messages"
+msgstr "Wszystkie wiadomości"
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.send_to_everyone_action
+msgid "All Newsletters"
+msgstr "Wszystkie Biuletyny"
+
+#. module: us_messenger
+#: model:ir.ui.menu,name:us_messenger.all_newsletters
+msgid "All newsletters"
+msgstr "Wszystkie biuletyny"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__filter_domain
+msgid "Apply on"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_ir_attachment
+msgid "Attachment"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Author from Telegram"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Author from Viber"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Author from Whatsapp"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Authors"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__automation_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__automation_id
+msgid "Automation"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_trigger_automation_action_from_project
+msgid "Automation Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Available Tasks"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Available Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__website_published
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__website_published
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__website_published
+msgid "Available on the Website"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_base
+msgid "Base"
+msgstr "Baza"
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_project.py:0
+#, python-format
+msgid "Base bot isn't exist"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__filter_pre_domain
+msgid "Before Update Domain"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__binding_model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__binding_model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__binding_model_id
+msgid "Binding Model"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__binding_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__binding_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__binding_type
+msgid "Binding Type"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__binding_view_types
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__binding_view_types
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__binding_view_types
+msgid "Binding View Types"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__bot_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__bot_id
+msgid "Bot"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__bot_name
+msgid "Bot Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__bot_type
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Bot type"
+msgstr "Typ bota"
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_trigger_button_action_from_project
+msgid "Button Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__type_button
+msgid "Button type"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.send_to_everyone_view_form
+msgid "Cancel"
+msgstr "Anulować"
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_link.py:0
+#, python-format
+msgid "Cannot find value for %s. Found: %s and %s"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__rich_media
+msgid "Carousel"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_tree
+msgid "Channel id"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__child_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__child_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__child_ids
+msgid "Child Actions"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__child_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__child_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__child_ids
+msgid ""
+"Child server actions that will be executed. Note that the last return "
+"returned action value will be used as global return value."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__sms_method
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__sms_method
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__sms_method
+msgid ""
+"Choose method for SMS sending:\n"
+"SMS: mass SMS\n"
+"Post as Message: log on document\n"
+"Post as Note: mass SMS with archives"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__mail_post_method
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__mail_post_method
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__mail_post_method
+msgid ""
+"Choose method for email sending:\n"
+"EMail: send directly emails\n"
+"Post as Message: post on document and notify followers\n"
+"Post as Note: log a note on document"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__code
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Code"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__common_code
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Common Code"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__create_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__create_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__create_date
+msgid "Created on"
+msgstr "Utworzono dnia"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__cron_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__cron_id
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Cron"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_cron
+msgid "Cron Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_trigger_cron_action_from_project
+msgid "Cron Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__retry
+msgid "Current try"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_automation
+msgid "DB Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "DB Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__ir_logging__type__data_out
+msgid "Data Transmission"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__date
+msgid "Date"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__trg_date_range
+msgid ""
+"Delay after the trigger date.\n"
+"        You can put a negative number if you need a delay before the\n"
+"        trigger date, like sending a reminder 15 minutes before a meeting."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trg_date_range
+msgid "Delay after trigger date"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trg_date_range_type
+msgid "Delay type"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__description
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__description
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__description
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__name
+msgid "Description"
+msgstr "Opis"
+
+#. module: us_messenger
+#: model:res.groups,name:us_messenger.us_messenger_group_dev
+msgid "Developer"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__display_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__display_name
+msgid "Display name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_mail_mail__document_message_id
+#: model:ir.model.fields,field_description:us_messenger.field_mail_message__document_message_id
+msgid "Document Message"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__url
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__url
+msgid "Documentation"
+msgstr "Dokumentacja"
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__done
+msgid "Done"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__done_warning
+msgid "Done With Warnings"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_search
+msgid "Done jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_date_deadline_range
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_date_deadline_range
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_date_deadline_range
+msgid "Due Date In"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_date_deadline_range_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_date_deadline_range_type
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_date_deadline_range_type
+msgid "Due type"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "E.g. Legacy Migration"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "E.g. Sync Products"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__template_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__template_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__template_id
+msgid "Email Template"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__active_button_ids
+msgid "Enabled Buttons"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__active_cron_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__trigger_cron_count
+msgid "Enabled Crons"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__active_automation_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__trigger_automation_count
+msgid "Enabled DB Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__active_webhook_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__trigger_webhook_count
+msgid "Enabled Webhooks"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__enqueued
+msgid "Enqueued"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_search
+msgid "Enqueued jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Errors"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__eval_context_description
+msgid "Eval Context Description"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__eval_context
+msgid "Evaluation context"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__eval_context_ids
+msgid "Evaluation contexts"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_trigger_cron_view_form
+msgid "Execute Every"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__xml_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__xml_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__xml_id
+msgid "External ID"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "External Links"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_mail_mail__external_messenger_id
+#: model:ir.model.fields,field_description:us_messenger.field_mail_message__external_messenger_id
+msgid "External Messenger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_mail_mail__external_messenger_id
+#: model:ir.model.fields,help:us_messenger.field_mail_message__external_messenger_id
+msgid "External id for messenger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__failed
+msgid "Failed"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_search
+msgid "Failed jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__on_change_field_ids
+msgid "Fields that trigger the onchange."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__func_string
+msgid "Function"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Generate Token"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Group By Authors"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Group By Recipients"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__groups_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__groups_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__groups_id
+msgid "Groups"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__numbercall
+msgid ""
+"How many times the method is called,\n"
+"a negative number indicates no limit."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__id
+msgid "ID"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__external_id
+msgid "ID User"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__xml_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__xml_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__xml_id
+msgid "ID of the action if defined in a XML file"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__filter_domain
+msgid ""
+"If present, this condition must be satisfied before executing the action "
+"rule."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__filter_pre_domain
+msgid ""
+"If present, this condition must be satisfied before the update of the "
+"record."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__image
+msgid "Image"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__url
+msgid "Image url"
+msgstr "Adres URL obrazu"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__in_progress
+msgid "In Progress"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__initial_value
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__initial_value
+msgid "Initial Value"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Instruction"
+msgstr "Instrukcja"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__interval_number
+msgid "Interval Number"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__interval_type
+msgid "Interval Unit"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_mixin__job_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__job_ids
+msgid "Job"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_mixin__job_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__job_count
+msgid "Job Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.ir_logging_action_from_job
+msgid "Job Logs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_job_action
+#: model:ir.ui.menu,name:us_messenger.messenger_job_menu_action
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Jobs"
+msgstr "Pracy"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__key
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__key
+msgid "Key"
+msgstr "Klucz"
+
+#. module: us_messenger
+#: model:ir.model.constraint,message:us_messenger.constraint_us_messenger_project_param_key_uniq
+#: model:ir.model.constraint,message:us_messenger.constraint_us_messenger_project_text_key_uniq
+msgid "Key must be unique."
+msgstr "Klucz musi być unikalny."
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__lastcall
+msgid "Last Execution Date"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron____last_update
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__last_run
+msgid "Last Run"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__write_uid
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__write_date
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__least_delay_msg
+msgid "Least Delay Msg"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__link_field_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__link_field_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__link_field_id
+msgid "Link Field"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_link_action
+#: model:ir.ui.menu,name:us_messenger.messenger_link_menu_action
+msgid "Links"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__log_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__log_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__log_ids
+msgid "Log"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__log_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__log_count
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__log_count
+msgid "Log Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_ir_logging
+msgid "Logging"
+msgstr "Logowanie"
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.ir_logging_action
+#: model:ir.ui.menu,name:us_messenger.ir_logging_menu_action
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Logs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_button
+msgid "Manual Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__trigger_button_ids
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__button_ids
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__trigger_button_count
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Manual Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__max_retries_str
+msgid "Max Retries Str"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_mail_message
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__msg
+msgid "Message"
+msgstr "Wiadomość"
+
+#. module: us_messenger
+#. odoo-javascript
+#: code:addons/us_messenger/static/src/models/composer_view.js:0
+#, python-format
+msgid "Message posted on \"%s\""
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_ir_logging__message_short
+msgid "Message..."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.ui.menu,name:us_messenger.all_message_with_bots
+msgid "Messages"
+msgstr "Wiadomości"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__messenger_image
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_kanban
+msgid "Messenger Image"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_job
+#: model:ir.model.fields,field_description:us_messenger.field_ir_logging__messenger_job_id
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Messenger Job"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_project
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Messenger Project"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_task
+#: model:ir.model.fields,field_description:us_messenger.field_base_automation__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_ir_actions_server__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_ir_cron__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__messenger_task_id
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Messenger Task"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_project_action
+#: model:ir.ui.menu,name:us_messenger.messenger_menu
+#: model:ir.ui.menu,name:us_messenger.messenger_project_menu_action
+msgid "Messengers"
+msgstr "Posłańcy"
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_link.py:0
+#, python-format
+msgid "Mixing apples and oranges: %s and %s"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_mixin
+msgid "Mixing for trigger models"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_mixin_actions
+msgid "Mixing for triggers that inherit actions"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_mixin_model_id
+msgid "Mixing to fill model_id field"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__model_id
+msgid "Model"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__model_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__model_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__model_name
+msgid "Model Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__crud_model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__crud_model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__crud_model_id
+msgid ""
+"Model for record creation / update. Set this field only to specify a "
+"different model than the base model."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__model_id
+msgid "Model on which the server action runs."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_context__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__cron_name
+msgid "Name"
+msgstr "Nazwa"
+
+#. module: us_messenger
+#: model:ir.model.constraint,message:us_messenger.constraint_us_messenger_project_context_name_uniq
+msgid "Name must be unique."
+msgstr "Nazwa musi być unikalna."
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_project__state__new
+msgid "New"
+msgstr "Nowy"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__nextcall
+msgid "Next Execution Date"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__nextcall
+msgid "Next planned execution date for this job."
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Non-debug"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__res_partner__type_messenger__none
+msgid "None"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_note
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_note
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_note
+msgid "Note"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__numbercall
+msgid "Number of Calls"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "Odoo Links"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__model
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "Odoo Model"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__on_change_field_ids
+msgid "On Change Fields Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Open Link"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__operator_ids
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Operator"
+msgstr "Operator"
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__help
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__help
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__help
+msgid ""
+"Optional help text for the users with a description of the target view, such"
+" as its usage and purpose."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__param_ids
+msgid "Param"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Parameters"
+msgstr "Parametry"
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Params"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__parent_job_id
+msgid "Parent Job"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__pending
+msgid "Pending"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_search
+msgid "Pending jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__lastcall
+msgid ""
+"Previous time the cron ran successfully, provided to the job through the "
+"context on the `lastcall` key"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__priority
+msgid "Priority"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_base_automation__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_ir_actions_server__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_ir_cron__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_ir_logging__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_mass_mailing__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__project_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__project_id
+msgid "Project"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_project_context
+msgid "Project Context"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_job_action_from_project
+msgid "Project Jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.ir_logging_action_from_project
+msgid "Project Logs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_project_param
+msgid "Project Parameter"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_project_text
+msgid "Project Text Parameter"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__link_field_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__link_field_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__link_field_id
+msgid ""
+"Provide the field used to link the newly created record on the record used "
+"by the server action."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__code
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__code
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__code
+msgid "Python Code"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__queue_job_id
+msgid "Queue Job"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__queue_job_state
+msgid "Queue Job State"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Recipient from Telegram"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Recipient from Viber"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Recipient from Whatsapp"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_mail_message_search
+msgid "Recipients"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__ref1
+msgid "Ref 1"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__ref2
+msgid "Ref 2"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "Reference"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+msgid "Refresh Form"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_mail_mail__document_message_id
+#: model:ir.model.fields,help:us_messenger.field_mail_message__document_message_id
+msgid "Relates a message that was duplicated from the document"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.us_messenger_link_view_search
+msgid "Relation"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__relation
+msgid "Relation Name"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Remove"
+msgstr "Usunąć"
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_trigger_button__type_button__remove
+msgid "Remove Webhook"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__doall
+msgid "Repeat Missed"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__interval_number
+msgid "Repeat every x."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_link
+msgid "Resource Links"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__ir_logging__type__data_in
+msgid "Response"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_user_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_user_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+msgid "Restart Failed Job"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_trigger_cron_view_form
+msgid "Run Manually"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Run Now"
+msgstr "Biegnij teraz"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__sms_template_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__sms_template_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__sms_template_id
+msgid "SMS Template"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__user_id
+msgid "Scheduler User"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.send_to_everyone_view_form
+msgid "Send"
+msgstr "Wysłać"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__send_to_everyone_ids
+msgid "Send To Everyone"
+msgstr "Wyślij do wszystkich"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__mail_post_method
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__mail_post_method
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__mail_post_method
+msgid "Send as"
+msgstr "Wyślij jako"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__sms_method
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__sms_method
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__sms_method
+msgid "Send as (SMS)"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_mass_mailing
+msgid "Send message to all bot subscribers"
+msgstr "Wyślij wiadomość do wszystkich subskrybentów bota"
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Send to everyone"
+msgstr "Wyślij do wszystkich"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__sequence
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__sequence
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_ir_actions_server
+msgid "Server Action"
+msgstr "Akcja serwera"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__action_server_id
+msgid "Server Actions"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__ir_actions_server_id
+msgid "Server action"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__binding_model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__binding_model_id
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__binding_model_id
+msgid ""
+"Setting a value makes this action available in the sidebar for the given "
+"model."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__doall
+msgid ""
+"Specify if missed occurrences should be executed when the server restarts."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_trigger_button__type_button__start
+msgid "Start Button"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_job__state__started
+msgid "Started"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_search
+msgid "Started jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+msgid "Starts:"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__state
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_partner__state_user
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__state
+msgid "State"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_job_view_form
+msgid "Sub Jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__job_ids
+msgid "Sub jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__mail_post_autofollow
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__mail_post_autofollow
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__mail_post_autofollow
+msgid "Subscribe Recipients"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_summary
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_summary
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_summary
+msgid "Summary"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__code_check
+msgid "Syntax check"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__system1
+msgid "System 1"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_link__system2
+msgid "System 2"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__crud_model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__crud_model_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__crud_model_id
+msgid "Target Model"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__crud_model_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__crud_model_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__crud_model_name
+msgid "Target Model Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_ir_logging__messenger_task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__task_id
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__task_ids
+msgid "Task"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__task_count
+msgid "Task Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__function
+msgid "Task Function"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_job_action_from_task
+msgid "Task Jobs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.ir_logging_action_from_task
+msgid "Task Logs"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_task_action_from_project
+msgid "Tasks"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__trigger_name
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_button__trigger_name
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__trigger_name
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_mixin__trigger_name
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__trigger_name
+msgid "Technical name to be used in task code"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__text
+msgid "Text"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__text_param_ids
+msgid "Text Param"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Texts"
+msgstr "Teksty"
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__trigger_field_ids
+msgid ""
+"The action will be triggered if and only if one of these fields is updated. "
+"If empty, all fields are watched."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__website_url
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__website_url
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__website_url
+msgid "The full URL to access the server action through the website."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__priority
+msgid ""
+"The priority of the job, as an integer: 0 means higher priority, 10 means "
+"lower priority."
+msgstr ""
+
+#. module: us_messenger
+#. odoo-javascript
+#: code:addons/us_messenger/static/src/models/composer_view.js:0
+#, python-format
+msgid "The user is not attached to the channel"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__token
+msgid "Token"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trigger
+msgid "Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__trigger_automation_id
+msgid "Trigger Automation"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__trigger_automation_count
+msgid "Trigger Automation Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__trigger_button_id
+msgid "Trigger Button"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__trigger_button_count
+msgid "Trigger Button Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__trigger_cron_id
+msgid "Trigger Cron"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__trigger_cron_count
+msgid "Trigger Cron Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trg_date_id
+msgid "Trigger Date"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trigger_field_ids
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_trigger_automation_view_form
+msgid "Trigger Fields"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__trigger_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trigger_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_button__trigger_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__trigger_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_mixin__trigger_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__trigger_name
+msgid "Trigger Name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_job__trigger_webhook_id
+msgid "Trigger Webhook"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__trigger_webhook_count
+msgid "Trigger Webhook Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_ir_logging__type
+msgid "Type"
+msgstr "Typ"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_res_partner__type_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_res_users__type_messenger
+msgid "Type Messenger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__state
+msgid "Type is used to separate New, Active Webhook, Not active Webhook"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.view_partner_form_inherited
+msgid "Type messenger:"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__state
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__state
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__state
+msgid ""
+"Type of server action. The following values are available:\n"
+"- 'Execute Python Code': a block of python code that will be executed\n"
+"- 'Create a new Record': create a new record with new values\n"
+"- 'Update a Record': update the values of a record\n"
+"- 'Execute several actions': define an action that triggers several other server actions\n"
+"- 'Send Email': post a message, a note or send an email (Discuss)\n"
+"- 'Add Followers': add followers to a record (Discuss)\n"
+"- 'Create Next Activity': create an activity (Discuss)\n"
+"- 'Send SMS Text Message': send SMS, log them on documents (SMS)"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_partner
+msgid "Union res_partner and us_messenger_link"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Updates token in Webhook URL"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.module.category,name:us_messenger.module_category_us_messenger
+msgid "Us messenger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__usage
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__usage
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__usage
+msgid "Usage"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__activity_user_type
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__activity_user_type
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__activity_user_type
+msgid ""
+"Use 'Specific User' to always assign the same user on the next activity. Use"
+" 'Generic User From Record' to specify the field name of the user to choose "
+"on the record."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__trg_date_calendar_id
+msgid "Use Calendar"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__user_ids
+#: model:res.groups,name:us_messenger.us_messenger_group_user
+msgid "User"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__activity_user_field_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__activity_user_field_name
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__activity_user_field_name
+msgid "User field name"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+msgid "Users"
+msgstr "Użytkownicy"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project__users_count
+msgid "Users Count"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_param__value
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_project_text__value
+msgid "Value"
+msgstr "Wartość"
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__fields_lines
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__fields_lines
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__fields_lines
+msgid "Value Mapping"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.ir_logging_view_search
+msgid "Warnings"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_task__webhook_ids
+msgid "Webhook"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Webhook Token"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model,name:us_messenger.model_us_messenger_trigger_webhook
+msgid "Webhook Trigger"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.actions.act_window,name:us_messenger.messenger_trigger_webhook_action_from_project
+msgid "Webhook Triggers"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__webhook_type
+msgid "Webhook Type"
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_project_view_form
+#: model_terms:ir.ui.view,arch_db:us_messenger.messenger_task_view_form
+msgid "Webhooks"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__website_path
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__website_path
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__website_path
+msgid "Website Path"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_automation__website_url
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_cron__website_url
+#: model:ir.model.fields,field_description:us_messenger.field_us_messenger_trigger_webhook__website_url
+msgid "Website Url"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__trg_date_calendar_id
+msgid ""
+"When calculating a day-based timed condition, it is possible to use a "
+"calendar to compute the date based on working days."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__sequence
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__sequence
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__sequence
+msgid ""
+"When dealing with multiple actions, the execution order is based on the "
+"sequence. Low number means high priority."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__trg_date_id
+msgid ""
+"When should the condition be triggered.\n"
+"                If present, will be checked by the scheduler. If empty, will be checked at creation and update."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__active
+msgid "When unchecked, the rule is hidden and will not be executed."
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_automation__code
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_cron__code
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_trigger_webhook__code
+msgid ""
+"Write Python code that the action will execute. Some variables are available"
+" for use; help about python expression is given in the help tab."
+msgstr ""
+
+#. module: us_messenger
+#: model_terms:ir.ui.view,arch_db:us_messenger.send_to_everyone_view_form
+msgid "Write a message..."
+msgstr "Napisać wiadomość..."
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_project.py:0
+#, python-format
+msgid "You can't delete this bot. This bot is base record for other bots"
+msgstr ""
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_project.py:0
+#, python-format
+msgid "You cannot use %s with getattr"
+msgstr ""
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_project.py:0
+#, python-format
+msgid "You cannot use %s with setattr"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_mass_mailing__bot_name
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_project__name
+msgid "Your bot name"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_trigger_webhook__webhook_type__json
+msgid "application/json"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields.selection,name:us_messenger.selection__us_messenger_trigger_webhook__webhook_type__http
+msgid "application/x-www-form-urlencoded"
+msgstr ""
+
+#. module: us_messenger
+#: model:ir.model.fields,help:us_messenger.field_us_messenger_task__name
+msgid "e.g. Messenger Products"
+msgstr ""
+
+#. module: us_messenger
+#. odoo-python
+#: code:addons/us_messenger/models/us_messenger_job.py:0
+#, python-format
+msgid "infinity"
+msgstr ""

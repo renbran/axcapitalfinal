@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="us_messenger_mail_message_tree" model="ir.ui.view">
+        <field name="name">mail.message.tree</field>
+        <field name="model">mail.message</field>
+        <field name="arch" type="xml">
+            <tree string="All Messages" create="False" delete="False">
+                <field name="body" />
+                <field name="res_id" string="Channel id"/>
+                <field name="author_id"/>
+                <field name="partner_ids" widget="many2many_tags"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="us_messenger_mail_message_search" model="ir.ui.view">
+        <field name="name">mail.message.search</field>
+        <field name="model">mail.message</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Author from Telegram" name="author_from_telegram" domain="[('author_id.type_messenger', 'in', ['telegram'])]"/>
+                <filter string="Author from Viber" name="author_from_viber" domain="[('author_id.type_messenger', 'in', ['viber'])]"/>
+                <filter string="Author from Whatsapp" name="author_from_whatsapp" domain="[('author_id.type_messenger', 'in', ['whatsapp'])]"/>
+                <separator/>
+                <filter string="Recipient from Telegram" name="recipient_from_telegram" domain="[('partner_ids.type_messenger', 'in', ['telegram'])]"/>
+                <filter string="Recipient from Viber" name="recipient_from_viber" domain="[('partner_ids.type_messenger', 'in', ['viber'])]"/>
+                <filter string="Recipient from Whatsapp" name="recipient_from_whatsapp" domain="[('partner_ids.type_messenger', 'in', ['whatsapp'])]"/>
+                <field name="author_id" />
+                <field name="body" />
+                <field name="res_id"/>
+                <field name="partner_ids"/>
+                <separator/>
+                <group expand="1" string="Group By Authors">
+                    <filter string="Authors" name="author" context="{'group_by':'author_id', 'residual_visible':True}"/>
+                </group>
+                <group expand="1" string="Group By Recipients">
+                    <filter string="Recipients" name="recipient" context="{'group_by':'partner_ids', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_us_messenger_mail_message" model="ir.actions.act_window">
+        <field name="name">All Messages</field>
+        <field name="res_model">mail.message</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="us_messenger_mail_message_search" />
+        <field name="domain">[
+            "&amp;",
+                ["model","=","discuss.channel"],
+                "|",
+                    "&amp;",
+                        ["author_id.type_messenger","=","none"],
+                        ["partner_ids.type_messenger","!=","none"],
+                    "&amp;",
+                        ["author_id.type_messenger","!=","none"],
+                        ["partner_ids.type_messenger","=","none"]
+            ]
+        </field>
+        <field name="view_id" ref="us_messenger_mail_message_tree" />
+    </record>
+
+    <menuitem
+            id="all_message_with_bots"
+            name="Messages"
+            parent="all_message_and_newsletter_with_bots"
+            action="action_us_messenger_mail_message"
+            sequence="10"
+    />
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="send_to_everyone_view_form" model="ir.ui.view">
+        <field name="name">us.messenger.mass.mailing.form</field>
+        <field name="model">us.messenger.mass.mailing</field>
+        <field name="arch" type="xml">
+            <form>
+               <sheet>
+                   <field name="bot_type" invisible="1"/>
+                    <group>
+                        <field name="image" widget="image" invisible="bot_type != 'telegram'" style="width: 100px; height: 100px;"/>
+                        <field name="url" invisible="bot_type not in ('viber','whatsapp')"/>
+                        <field name="msg" widget="text_emojis" placeholder="Write a message..."/>
+                        <field name="rich_media" invisible="bot_type != 'viber'"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Send"  special="save" type="object" class="btn-primary o_mail_send"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="send_to_everyone_tree" model="ir.ui.view">
+        <field name="name">us.messenger.mass.mailing.tree</field>
+        <field name="model">us.messenger.mass.mailing</field>
+        <field name="arch" type="xml">
+            <tree create="False" delete="False" action="action_open_send_to_everyone" type="object">
+                <field name="msg" />
+                <field name="project_id" />
+                <field name="create_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="send_to_everyone_view_search" model="ir.ui.view">
+        <field name="name">us.messenger.mass.mailing.search</field>
+        <field name="model">us.messenger.mass.mailing</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="msg" />
+                <field name="bot_name" />
+            </search>
+        </field>
+    </record>
+    <record id="send_to_everyone_action" model="ir.actions.act_window">
+        <field name="name">All Newsletters</field>
+        <field name="res_model">us.messenger.mass.mailing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="send_to_everyone_view_search" />
+    </record>
+
+    <menuitem
+            id="all_newsletters"
+            name="All newsletters"
+            parent="all_message_and_newsletter_with_bots"
+            action="send_to_everyone_action"
+            sequence="10"
+    />
+</odoo>

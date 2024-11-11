@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="myfatoorah_gateway.payment_method_form" inherit_id="payment.method_form">
+    </template>
+
+    <template id="inline_form">
+        <div t-attf-id="myfatoorah-container-{{provider_id}}">
+            <t t-call="myfatoorah_gateway.payment_details"/>
+        </div>
+    </template>
+
+    <template id="payment_details">
+        <div class="row">
+                <div class="mb-3">
+                    <input name="provider_id" type="hidden" id="provider_id" t-att-value="id"/>
+                    <input name="partner_id" type="hidden" t-att-value="partner_id"/>
+                </div>
+                <div id="myfatoorah_container">
+                    <div class="mf-payment-methods-container" id="mf-noPaymentGateways">
+                        <div class="mf-danger-text">
+                            There are no payment methods available on your account, please contact your account manager.
+                        </div>
+                    </div>
+                    <div class="mf-payment-methods-container" id="mf-paymentGateways">
+                        <div class="mf-grey-text">
+                            <t t-translation="on">How would you like to pay?</t>
+                        </div>
+                        <!-- Google Pay & Apple Pay -->
+                    <div id="mf-sectionButtons">
+                        <div id="mf-sectionAP">
+                            <div id="mf-ap-element"></div>
+                        </div>
+                        <div id="mf-sectionGP">
+                            <div id="mf-gp-element"></div>
+                        </div>
+                    </div>
+                    <div id="mf-sectionCard">
+                        <div class="mf-divider card-divider" id="mf-payWith-cardDivider">
+                            <span class="mf-divider-span" id="mf-payWith-divider">
+                                <span id="mf-or-cardsDivider">
+                                    Or
+                                </span>
+                                Pay with
+                            </span>
+                        </div>
+                        <div id="mf-cards"></div>
+                    </div>
+                    <div class="mf-divider" id="mf-cardView">
+                        <span class="mf-divider-span">
+                            <span id="mf-or-formDivider">
+                            Or
+                            </span>
+                            Insert Card Details
+                        </span>
+                    </div>
+                    <div id="mf-form-element"></div>
+                    </div>
+                </div>
+            </div>
+    </template>
+
+</odoo>

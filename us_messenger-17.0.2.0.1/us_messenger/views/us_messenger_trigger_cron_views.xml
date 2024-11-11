@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="messenger_trigger_cron_view_tree" model="ir.ui.view">
+        <field name="name">us.messenger.trigger.cron.tree</field>
+        <field name="model">us.messenger.trigger.cron</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="trigger_name" />
+                <field name="interval_number" />
+                <field name="interval_type" />
+                <field name="nextcall" />
+                <field name="numbercall" />
+                <field name="active" />
+                <field name="project_id" />
+                <field name="messenger_task_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="messenger_trigger_cron_view_form" model="ir.ui.view">
+        <field name="name">us.messenger.trigger.cron.form</field>
+        <field name="model">us.messenger.trigger.cron</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="start_button"
+                        type="object"
+                        string="Run Manually"
+                        class="oe_highlight"
+                        invisible="active == False"
+                    />
+                </header>
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        text="Archived"
+                        bg_color="bg-danger"
+                        invisible="active == True"
+                    />
+                    <group>
+                        <field name="active" string="Active" />
+                        <field name="trigger_name" />
+                        <label for="interval_number" string="Execute Every" />
+                        <div>
+                            <field name="interval_number" class="oe_inline" />
+                            <field name="interval_type" class="oe_inline" />
+                        </div>
+                        <field name="nextcall" />
+                        <field name="numbercall" />
+                        <field name="priority" />
+                        <field name="doall" />
+                        <field name="user_id" />
+                        <field name="messenger_task_id" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="messenger_trigger_cron_view_form_full" model="ir.ui.view">
+        <field name="name">us.messenger.trigger.cron.form full</field>
+        <field name="model">us.messenger.trigger.cron</field>
+        <field name="inherit_id" ref="messenger_trigger_cron_view_form" />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='messenger_task_id']" position="attributes">
+                <attribute name="invisible" />
+                <attribute name="required" eval="1" />
+            </xpath>
+        </field>
+    </record>
+    <record id="messenger_trigger_cron_action_from_project" model="ir.actions.act_window">
+        <field name="name">Cron Triggers</field>
+        <field name="res_model">us.messenger.trigger.cron</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('project_id', '=', active_id)]</field>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+                                     (0, 0, {'view_mode': 'tree', 'view_id': ref('messenger_trigger_cron_view_tree')}),
+                                     (0, 0, {'view_mode': 'form', 'view_id': ref('messenger_trigger_cron_view_form_full')})]"
+        />
+    </record>
+</odoo>

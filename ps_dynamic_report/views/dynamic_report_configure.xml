@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="dynamic_report_configure_form_view" model="ir.ui.view">
+        <field name="name">dynamic.report.configure.view.form</field>
+        <field name="model">dynamic.report.configure</field>
+        <field name="arch" type="xml">
+            <form string="Dynamic Report Configure">
+                <header>
+                    <button name="create_server_action" string="Create Action" type="object" class="oe_highlight"
+                            invisible="is_action_created != False"/>
+                    <button name="remove_server_action" string="Remove Action" type="object"
+                            invisible="not is_action_created"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1" readonly="is_action_created != False"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="model_id" required="1" context="{'default_dynamic_configure_id':active_id}"
+                                   readonly="is_action_created != False"/>
+                            <field name="is_action_created" invisible="1"/>
+                            <field name="server_action_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="report_type" required="1" widget="radio" options="{'horizontal': true}"
+                                   readonly="is_action_created != False"/>
+                        </group>
+                    </group>
+                    <field name="dynamic_field_id" context="{'dynamic_field_id':dynamic_field_id}" nolabel="1"
+                           readonly="is_action_created != False">
+                        <tree string="Dynamic Field" editable="bottom" mode="tree,form">
+                            <field name="sequence" widget="handle"/>
+                            <field name="field_id" string="Field Name" options="{'no_create': True}"
+                                   domain="[('model_id', '=', parent.model_id), ('ttype', 'not in' , ['one2many', 'many2many'])]"/>
+                            <field name="field_name_id" string="Technical name"/>
+                            <field name="field_type" string="Field Type"/>
+                            <field name="dynamic_configure_id" invisible="1"/>
+                            <field name="is_sum_calc"
+                                   invisible="field_type not in ['float', 'integer', 'monetary']"
+                            />
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="field_id" string="Field Name"/>
+                                    <field name="field_name_id" string="Technical Name"/>
+                                </group>
+                                <group>
+                                    <field name="field_type"/>
+                                    <field name="dynamic_configure_id"/>
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dynamic_report_configure_tree_view" model="ir.ui.view">
+        <field name="name">dynamic.report.configure.view.tree</field>
+        <field name="model">dynamic.report.configure</field>
+        <field name="arch" type="xml">
+            <tree string="Configuration">
+                <field name="name" string="Name"/>
+                <field name="model_id" string="Model Name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_dynamic_report_configure" model="ir.actions.act_window">
+        <field name="name">Dynamic Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dynamic.report.configure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="action_dynamic_report_configure"
+              name="Dynamic Report"
+              id="menu_dynamic_report_configure"
+              parent="base.reporting_menuitem"
+              sequence="10"/>
+</odoo>

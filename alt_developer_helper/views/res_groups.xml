@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_groups_developer_helper_form_inherit" model="ir.ui.view">
+            <field name="name">res_groups_developer_helper.form</field>
+            <field name="model">res.groups</field>
+            <field name="inherit_id" ref="base.view_groups_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="xml_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

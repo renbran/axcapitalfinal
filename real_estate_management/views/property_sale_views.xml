@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+        <!-- Action for Property Sale -->
+        <record id="action_property_sale" model="ir.actions.act_window">
+            <field name="name">Property Sales</field>
+            <field name="res_model">property.sale</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your property sales.
+                </p>
+            </field>
+        </record>
+
+        <!-- Tree View for Property Sale -->
+        <record id="view_property_sale_tree" model="ir.ui.view">
+            <field name="name">property.sale.tree</field>
+            <field name="model">property.sale</field>
+            <field name="arch" type="xml">
+                <tree string="Property Sales">
+                    <field name="name"/>
+                    <field name="property_id"/>
+                    <field name="partner_id"/>
+                    <field name="order_date"/>
+                    <field name="state"/>
+                    <field name="sale_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Property Sale -->
+        <record id="view_property_sale_form" model="ir.ui.view">
+            <field name="name">property.sale.form</field>
+            <field name="model">property.sale</field>
+            <field name="arch" type="xml">
+                <form string="Property Sale">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                        <!-- Confirm Button -->
+                        <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                                modifiers="draft"/>
+                        <!-- Compute Installments Button -->
+                        <button name="compute_remaining_installments" type="object" string="Compute Installments"
+                                class="btn-secondary" modifiers="confirm"/>
+                        <!-- Create Invoice Button -->
+                        <button name="create_invoice" type="object" string="Create Invoice" class="btn-info"
+                                modifiers="confirm"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="property_id"/>
+                                <field name="partner_id"/>
+                                <field name="order_date"/>
+                                <field name="currency_id"/>
+                            </group>
+                            <group>
+                                <field name="sale_price" readonly="1"/>
+                                <field name="down_payment"/>
+                                <field name="dld_fee" readonly="1"/>
+                                <field name="remaining_balance" readonly="1"/>
+                                <field name="desired_years"/>
+                                <field name="no_of_installments" readonly="1"/>
+                                <field name="amount_per_installment" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Installment Payments">
+                                <field name="property_sale_line_ids">
+                                    <tree editable="bottom">
+                                        <field name="serial_number"/>
+                                        <field name="capital_repayment"/>
+                                        <field name="remaining_capital"/>
+                                        <field name="collection_status"/>
+                                        <field name="collection_amount" readonly="1"/>
+                                        <field name="collection_date" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Menu item for Property Sale -->
+        <menuitem id="menu_property_sale_root" name="Property Sales" sequence="10"/>
+        <menuitem id="menu_property_sale" name="Sales" parent="menu_property_sale_root" action="action_property_sale" sequence="10"/>
+    </data>
+</odoo>

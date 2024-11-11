@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_method_myfatoorah" model="payment.method">
+        <field name="name">MyFatoorah</field>
+        <field name="code">myfatoorah</field>
+        <field name="sequence">1</field>
+        <field name="image" type="base64" file="myfatoorah_gateway/static/description/icon.png"/>
+        <field name="support_tokenization">True</field>
+        <field name="support_express_checkout">False</field>
+        <field name="support_refund">partial</field>
+    </record>
+
+</odoo>

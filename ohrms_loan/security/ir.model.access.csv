@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_loan_user,access.hr.loan.user,model_hr_loan,base.group_user,1,1,1,0
+access_hr_job_user,access.hr.job.user,hr.model_hr_job,base.group_user,1,1,1,0
+access_hr_loan_line_user,access.hr.loan.line.user,model_hr_loan_line,base.group_user,1,1,0,0
+access_hr_loan_officer,access.hr.loan.officer,model_hr_loan,hr.group_hr_user,1,1,1,1
+access_hr_loan_line_officer,access.hr.loan.line.officer,model_hr_loan_line,hr.group_hr_user,1,1,1,1
+access_hr_loan_manager,access.hr.loan.manager,model_hr_loan,hr.group_hr_manager,1,1,1,1
+access_hr_loan_line_manager,access.hr.loan.line.manager,model_hr_loan_line,hr.group_hr_manager,1,1,1,1
+access_loan_type_base,access.loan.type.base,model_loan_type,base.group_user,1,1,1,1
+access_loan_request_approver,access.loan.request.approver,model_loan_request,advanced_loan_management.loan_management_group_manager,1,1,1,1
+access_loan_request_user,access.loan.request.user,model_loan_request,advanced_loan_management.loan_management_group_user,1,1,1,0
+access_loan_documents_base,access.loan.documents.base,model_loan_documents,base.group_user,1,1,1,1
+access_repayment_line_base,access.repayment.line.base,model_repayment_line,base.group_user,1,1,1,1
+access_reject_reason_wizard_base,access.reject.reason.base,model_reject_reason,base.group_user,1,1,1,1
+access_message_wizard_base,access.message.popup.base,model_message_popup,base.group_user,1,1,1,1

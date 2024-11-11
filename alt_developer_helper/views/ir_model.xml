@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_model_developer_helper_form_inherit" model="ir.ui.view">
+            <field name="name">ir_model_developer_helper.form</field>
+            <field name="model">ir.model</field>
+            <field name="inherit_id" ref="base.view_model_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='model']" position="after">
+                    <field name="xml_id"/>
+                </xpath>
+                <xpath expr="//field[@name='order']" position="after">
+                    <field name="count"/>
+                </xpath>
+                <xpath expr="//field[@name='modules']" position="after">
+                    <field name="inherited_model_ids" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='field_id']/tree" position="attributes">
+                    <attribute name="limit">1000</attribute>
+                </xpath>
+                <xpath expr="//field[@name='field_id']/tree/field[@name='ttype']" position="before">
+                    <field name="modules"/>
+                </xpath>
+                <xpath expr="//field[@name='field_id']/tree/field[@name='ttype']" position="after">
+                    <field name="relation"/>
+                    <field name="store"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

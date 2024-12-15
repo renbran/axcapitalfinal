@@ -1,0 +1,40 @@
+<odoo>
+    <!-- Editable Tree View for Sale Order Type -->
+    <record id="view_sale_order_type_tree_editable" model="ir.ui.view">
+        <field name="name">sale.order.type.tree.editable</field>
+        <field name="model">sale.order.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_sale_order_type_form" model="ir.ui.view">
+        <field name="name">sale.order.type.form</field>
+        <field name="model">sale.order.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence_id"/>
+                        <field name="prefix"/>
+                        <field name="description"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Action to Open the Tree View -->
+    <record id="action_sale_order_type_list" model="ir.actions.act_window">
+        <field name="name">Sale Order Types</field>
+        <field name="res_model">sale.order.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item to Access the Tree View -->
+    <menuitem id="menu_sale_order_type" name="Sale Order Types" parent="sale.menu_sale_config" action="action_sale_order_type_list" sequence="100"/>
+</odoo>

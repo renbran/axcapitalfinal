@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="view_order_form_inherit_commission" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.commission</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <sheet position="inside">
+                    <group>
+                        <group string="Commission Details">
+                            <field name="consultant_id"/>
+                            <field name="consultant_comm_percentage"/>
+                            <field name="salesperson_commission" readonly="1"/>
+
+                            <field name="manager_id"/>
+                            <field name="manager_comm_percentage"/>
+                            <field name="manager_commission" readonly="1"/>
+
+                            <field name="director_id"/>
+                            <field name="director_comm_percentage"/>
+                            <field name="director_commission" readonly="1"/>
+
+                            <field name="company_share" readonly="1"/>
+                            <field name="net_company_share" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Generated Purchase Orders">
+                            <field name="purchase_order_ids" widget="many2many_tags" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </field>
+        </record>
+    </data>
+</odoo>

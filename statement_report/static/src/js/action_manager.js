@@ -4,20 +4,11 @@ import { download } from "@web/core/network/download";
 import { BlockUI, unblockUI } from "@web/core/ui/block_ui";
 
 // Action manager for xlsx report
-registry.category('ir.actions.report_handlers').add('xlsx', async (action) => {
+const xlsxHandler = async (action) => {
     if (action.report_type === 'xlsx') {
-        // Check if the 'xlsx' handler is already registered
-        const existingHandler = registry.category('ir.actions.report_handlers').get('xlsx');
-        
-        // If the handler is already registered, do not add it again
-        if (existingHandler) {
-            console.warn('Handler for "xlsx" report type already exists.');
-            return;
-        }
-
         // Block the UI
         BlockUI();
-        
+
         try {
             await download({
                 url: '/xlsx_report',
@@ -32,4 +23,11 @@ registry.category('ir.actions.report_handlers').add('xlsx', async (action) => {
             unblockUI();
         }
     }
-});
+};
+
+// Register the handler only if it's not already registered
+if (!registry.category('ir.actions.report_handlers').get('xlsx')) {
+    registry.category('ir.actions.report_handlers').add('xlsx', xlsxHandler);
+} else {
+    console.warn('Handler for "xlsx" report type already exists.');
+}

@@ -1,9 +1,0 @@
-[submodule "RENBRAN/cloudpepper-addons"]
-	path = RENBRAN/cloudpepper-addons
-	url = git@github.com:RENBRAN/cloudpepper-addons.git
-	branch = main
-
-[submodule "renbran/cloudpepper-addons"]
-	path = renbran/cloudpepper-addons
-	url = git@github.com:renbran/cloudpepper-addons.git
-	branch = main

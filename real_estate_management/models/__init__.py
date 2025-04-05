@@ -20,4 +20,3 @@ from . import property_tag
 from . import rental_bill
 from . import res_partner
 from . import property_dashboard
-from . import property_sale_line

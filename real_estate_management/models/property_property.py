@@ -1,290 +1,185 @@
-# -*- coding: utf-8 -*-
-################################################################################
-#
-#    Kolpolok Ltd. (https://www.kolpolok.com)
-#    Author: Kaushik Ahmed Apu, Aqil Mahmud, Zarin Tasnim(<https://www.kolpolok.com>)
-#
-################################################################################
 from odoo import api, fields, models, _
-
+from odoo.exceptions import UserError
+from dateutil.relativedelta import relativedelta
 
 class Property(models.Model):
-    """A class for the model property to represent the property"""
-
-    _name = "property.property"
-    _description = "Property"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
-
-    name = fields.Char(
-        string="Name", required=True, copy=False, help="Name of the Property"
-    )
-    code = fields.Char(
-        string="Reference",
-        readonly=True,
-        copy=False,
-        default=lambda self: _("New"),
-        help="Sequence/code for the property",
-    )
-    property_type = fields.Selection(
-        [
-            ("land", "Land"),
-            ("residential", "Residential"),
-            ("commercial", "Commercial"),
-            ("industry", "Industry"),
-        ],
-        string="Type",
-        required=True,
-        help="The type of the property",
-    )
-    state = fields.Selection(
-        [
-            ("draft", "Draft"),
-            ("available", "Available"),
-            ("rented", "Rented"),
-            ("sold", "Sold"),
-        ],
-        required=True,
-        string="Status",
-        default="draft",
-        help="* The 'Draft' status is used when the property is in draft.\n"
-        "* The 'Available' status is used when the property is "
-        "available or confirmed\n"
-        "* The 'Rented' status is used when the property is rented.\n"
-        "* The 'sold' status is used when the property is sold.\n",
-    )
-    street = fields.Char(string="Street", required=True, help="The street name")
-    street2 = fields.Char(string="Street2", help="The street2 name")
-    zip = fields.Char(string="Zip", change_default=True, help="Zip code for the place")
-    city = fields.Char(string="City", help="The name of the city")
-    country_id = fields.Many2one(
-        "res.country",
-        string="Country",
-        ondelete="restrict",
-        required=True,
-        help="The name of the country",
-    )
-    state_id = fields.Many2one(
-        "res.country.state",
-        string="State",
-        ondelete="restrict",
-        tracking=True,
-        domain="[('country_id', '=?', country_id)]",
-        help="The name of the state",
-    )
-    latitude = fields.Float(
-        string="Latitude",
-        digits=(16, 5),
-        help="The latitude of where the property is " "situated",
-    )
-    longitude = fields.Float(
-        string="Longitude",
-        digits=(16, 5),
-        help="The longitude of where the property is " "situated",
-    )
-    company_id = fields.Many2one(
-        "res.company",
-        string="Property Management Company",
-        default=lambda self: self.env.company,
-    )
-    currency_id = fields.Many2one(
-        "res.currency", string="Currency", related="company_id.currency_id"
-    )
-    image = fields.Binary(string="Image", help="Image of the property")
-    construct_year = fields.Char(
-        string="Construct Year", size=4, help="Year of construction of the property"
-    )
-    license_no = fields.Char(
-        string="License No.", help="License number of the property"
-    )
-    landlord_id = fields.Many2one(
-        "res.partner", string="LandLord", help="The owner of the property"
-    )
-    description = fields.Text(
-        string="Description", help="A brief description about the property"
-    )
-    responsible_id = fields.Many2one(
-        "res.users",
-        string="Responsible Person",
-        help="The responsible person for " "this property",
-        default=lambda self: self.env.user,
-    )
-    type_residence = fields.Char(
-        string="Type of Residence", help="The type of the residence"
-    )
-    total_floor = fields.Integer(
-        string="Total Floor",
-        default=1,
-        help="The total number of floor in " "the property",
-    )
-    bedroom = fields.Integer(
-        string="Bedrooms", help="Number of bedrooms in the property"
-    )
-    bathroom = fields.Integer(
-        string="Bathrooms", help="Number of bathrooms in the property"
-    )
-    parking = fields.Integer(
-        string="Parking",
-        help="Number of cars or bikes that can be parked " "in the property",
-    )
-    furnishing = fields.Selection(
-        [
-            ("no_furnished", "Not Furnished"),
-            ("half_furnished", "Partially Furnished"),
-            ("furnished", "Fully Furnished"),
-        ],
-        string="Furnishing",
-        help="Whether the residence is fully furnished or partially/half "
-        "furnished or not at all furnished",
-    )
-    land_name = fields.Char(string="Land Name", help="The name of the land")
-    land_area = fields.Char(
-        string="Area In Hector", help="The area of the land in hector"
-    )
-    shop_name = fields.Char(string="Shop Name", help="The name of the shop")
-    industry_name = fields.Char(string="Industry Name", help="The name of the industry")
-    usage = fields.Char(
-        string="Used For", help="For what purpose is this property used for"
-    )
-    location = fields.Char(string="Location", help="The location of the property")
-    property_image_ids = fields.One2many(
-        "property.image", "property_id", string="Property Images"
-    )
-    area_measurement_ids = fields.One2many(
-        "property.area.measure", "property_id", string="Area Measurement"
-    )
-    total_sq_feet = fields.Float(
-        string="Total Square Feet",
-        compute="_compute_total_sq_feet",
-        help="The total area square feet of the " "property",
-    )
-    facility_ids = fields.Many2many(
-        "property.facility", string="Facilities", help="Facilities of the property"
-    )
-    nearby_connectivity_ids = fields.One2many(
-        "property.nearby.connectivity", "property_id", string="Nearby Connectives"
-    )
-    property_tags = fields.Many2many(
-        "property.tag", string="Property Tags", help="Tags for the property"
-    )
-    attachment_id = fields.Many2one("ir.attachment", string="Attachment")
-    sale_rent = fields.Selection(
-        [
-            ("for_sale", "For Sale"),
-            ("for_tenancy", "For Tenancy"),
-            ("for_auction", "For Auction"),
-        ],
-        string="Sale | Rent",
-        required=True,
-    )
-    unit_price = fields.Monetary(
-        string="Sales Price", help="Selling price of the Property."
-    )
-    sale_id = fields.Many2one(
-        "property.sale",
-        string="Sale Order",
-        help="The corresponding property sale",
-        tracking=True,
-    )
-    rent_month = fields.Monetary(
-        string="Rent/Month", help="Rent price per month", tracking=True
-    )
-    is_installment_payment = fields.Boolean(
-        string="Installment Payment", help="Payments are made in installment"
-    )
-    monthly_or_yearly = fields.Selection([('monthly', 'Monthly'),
-                                  ('yearly', 'Yearly')],
-                                 string="Monthly / Yearly",
-                                 help="Automatically selects the Contract Period",
-                                 tracking=True)
-    no_of_months = fields.Integer(string="Number of Months")
-    no_of_years = fields.Integer(string="Number of Years")
-    no_of_installments = fields.Integer(string="Number of Installments", compute='_compute_installments', store=True)
-    amount_per_installment = fields.Float(string="Amount Per Installment", compute='_compute_installments', store=True)
-
+    _name = 'property.property'
+    _description = 'Property Details'
+    _order = 'name'
+    
+    name = fields.Char(string="Property Name", required=True)
+    property_image = fields.Image("Property Image")
+    floor_plan = fields.Image("Floor Plan")
+    
+    # New fields for additional images
+    interior_image = fields.Image("Interior View")  # Field for interior view image
+    amenities_image = fields.Image("Amenities")    # Field for amenities image
+    
+    partner_id = fields.Many2one('res.partner', string="Partner")
+    property_price = fields.Monetary(string="Property Price", required=True)
+    revenue_account_id = fields.Many2one('account.account', string="Revenue Account", required=True, 
+                                        default=lambda self: self.env['account.account'].search([('name', '=', 'Sales Account')], limit=1))
+    address = fields.Text(string="Address")
+    sale_rent = fields.Selection([
+        ('for_sale', 'For Sale'),
+        ('for_rent', 'For Rent'),
+    ], string="Sale or Rent", required=True)
+    state = fields.Selection([
+        ('available', 'Available'),
+        ('reserved', 'Reserved'),
+        ('booked', 'Booked'),
+        ('sold', 'Sold')
+    ], string="State", default='available', required=True)
+    currency_id = fields.Many2one('res.currency', string="Currency", required=True, default=lambda self: self.env.company.currency_id)
+    description = fields.Text(string="Description")
+    
+    property_sale_ids = fields.One2many('property.sale', 'property_id', string="Related Sales")
+    sale_count = fields.Integer(string="Sale Count", compute="_compute_sale_count")
+    
+    # New payment tracking fields
+    payment_progress = fields.Float(string="Payment Progress (%)", compute="_compute_payment_progress", store=True)
+    total_invoiced = fields.Monetary(compute='_compute_payment_details')
+    total_paid = fields.Monetary(string="Total Paid", compute="_compute_payment_details", store=True)
+    remaining_amount = fields.Monetary(string="Remaining Amount", compute="_compute_payment_details", store=True)
+    active_sale_id = fields.Many2one('property.sale', string="Active Sale", compute="_compute_active_sale")
+    
+    # Existing fields
+    field_id = fields.Integer(string="ID")
+    property_reference = fields.Char(string="Property Reference")
+    status = fields.Char(string="Status", compute="_compute_status", store=True)
+    tower = fields.Char(string="Tower")
+    level = fields.Char(string="Level")
+    project_name = fields.Char(string="Project Name", default="Sky Hills Astra")
+    unit_no = fields.Char(string="Unit No")
+    unit_view = fields.Char(string="Unit View")
+    total_sqft = fields.Float(string="Total Sqft")
+    price_per_sqft = fields.Float(string="Price / Sqft")
+    total_sale_value = fields.Float(string="Total Sale Value", compute="_compute_total_sale_value", store=True)
+    property_type = fields.Char(string="Type")
+    
+    @api.depends('state')
+    def _compute_status(self):
+        for record in self:
+            if record.state == 'available':
+                record.status = 'Available'
+            elif record.state == 'reserved':
+                record.status = 'Reserved'
+            elif record.state == 'booked':
+                record.status = 'Booked'
+            elif record.state == 'sold':
+                record.status = 'Sold'
+            else:
+                record.status = 'Unknown'
+    
+    @api.depends('total_sqft', 'price_per_sqft')
+    def _compute_total_sale_value(self):
+        for record in self:
+            record.total_sale_value = record.total_sqft * record.price_per_sqft
+    
+    @api.depends('property_sale_ids')
+    def _compute_sale_count(self):
+        for record in self:
+            record.sale_count = len(record.property_sale_ids)
+    
+    @api.depends('property_sale_ids')
+    def _compute_active_sale(self):
+        for record in self:
+            active_sales = record.property_sale_ids.filtered(lambda s: s.state in ['confirm', 'invoiced'])
+            record.active_sale_id = active_sales[0] if active_sales else False
+    
+    @api.depends('active_sale_id', 'active_sale_id.property_sale_line_ids', 
+                 'active_sale_id.property_sale_line_ids.collection_status')
+    def _compute_payment_progress(self):
+        for record in self:
+            if record.active_sale_id:
+                # Get all lines
+                all_lines = record.active_sale_id.property_sale_line_ids
+                if all_lines:
+                    # Calculate paid percentage
+                    total_amount = sum(all_lines.mapped('capital_repayment'))
+                    paid_amount = sum(all_lines.filtered(lambda l: l.collection_status == 'paid').mapped('capital_repayment'))
+                    
+                    if total_amount > 0:
+                        record.payment_progress = (paid_amount / total_amount) * 100
+                    else:
+                        record.payment_progress = 0.0
+                else:
+                    record.payment_progress = 0.0
+            else:
+                record.payment_progress = 0.0
+    
+    def _compute_payment_details(self):
+        for prop in self:
+            if prop.active_sale_id:
+                # Get all payment lines
+                all_lines = prop.active_sale_id.property_sale_line_ids
+                
+                # Calculate paid amount
+                paid_lines = all_lines.filtered(lambda l: l.collection_status == 'paid')
+                paid_amount = sum(paid_lines.mapped('capital_repayment'))
+                total_amount = sum(all_lines.mapped('capital_repayment'))
+                
+                # Set values
+                prop.total_invoiced = total_amount
+                prop.total_paid = paid_amount
+                prop.remaining_amount = prop.active_sale_id.total_selling_price - paid_amount
+                prop.payment_progress = (paid_amount / total_amount) * 100 if total_amount else 0
+            else:
+                prop.total_invoiced = 0.0
+                prop.total_paid = 0.0
+                prop.remaining_amount = 0.0
+                prop.payment_progress = 0.0
+    
     @api.model
     def create(self, vals):
-        """Generating sequence number at the time of creation of record"""
-        if vals.get("code", "New") == "New":
-            vals["code"] = (
-                self.env["ir.sequence"].next_by_code("property.property") or "New"
-            )
-        res = super(Property, self).create(vals)
-        return res
-
-    def _compute_total_sq_feet(self):
-        """Calculates the total square feet of the property"""
-        for rec in self:
-            rec.total_sq_feet = sum(rec.mapped("area_measurement_ids").mapped("area"))
-
-    @api.model
-    def _geo_localize(self, street="", zip="", city="", state="", country=""):
-        """Generate Latitude and Longitude based on address"""
-        geo_obj = self.env["base.geocoder"]
-        search = geo_obj.geo_query_address(
-            street=street, zip=zip, city=city, state=state, country=country
-        )
-        result = geo_obj.geo_find(search, force_country=country)
-        if result is None:
-            search = geo_obj.geo_query_address(city=city, state=state, country=country)
-            result = geo_obj.geo_find(search, force_country=country)
-        return result
-
-    @api.onchange("street", "zip", "city", "state_id", "country_id")
-    def _onchange_address(self):
-        """Writing Latitude and Longitude to the record"""
-        for rec in self.with_context(lang="en_US"):
-            result = rec._geo_localize(
-                rec.street, rec.zip, rec.city, rec.state_id.name, rec.country_id.name
-            )
-            if result:
-                rec.write(
-                    {
-                        "latitude": result[0],
-                        "longitude": result[1],
-                    }
-                )
-
-    def action_get_map(self):
-        """Redirects to google map to show location based on latitude
-        and longitude"""
-        return {
-            "type": "ir.actions.act_url",
-            "name": "View Map",
-            "target": "self",
-            "url": "/map/%s/%s" % (self.latitude, self.longitude),
-        }
-
-    def action_available(self):
-        """Set the state to available"""
-        self.state = "available"
-
-    def action_property_sale_view(self):
-        """View Sale order Of the Property"""
-        return {
-            "name": "Property Sale: " + self.code,
-            "view_mode": "tree,form",
-            "res_model": "property.sale",
-            "type": "ir.actions.act_window",
-            "res_id": self.sale_id.id,
-        }
-
-    def action_property_rental_view(self):
-        """View rental order Of the Property"""
-        return {
-            "name": "Property Rental: " + self.code,
-            "view_mode": "tree,form",
-            "res_model": "property.rental",
-            "type": "ir.actions.act_window",
-            "domain": [("property_id", "=", self.id)],
-        }
+        return super(Property, self).create(vals)
     
-    @api.depends('unit_price', 'no_of_months', 'no_of_years')
-    def _compute_installments(self):
-        for record in self:
-            if record.no_of_months or record.no_of_years:
-                record.no_of_installments = record.no_of_months or record.no_of_years
-                if record.unit_price:
-                    record.amount_per_installment = record.unit_price / record.no_of_installments
-            else:
-                record.no_of_installments = 0
-                record.amount_per_installment = 0.00
+    def write(self, vals):
+        res = super(Property, self).write(vals)
+        if 'state' in vals and vals['state'] == 'sold':
+            property_sale = self.env['property.sale'].search([('property_id', '=', self.id), ('state', '=', 'confirm')], limit=1)
+            if property_sale and property_sale.partner_id:
+                self.write({'partner_id': property_sale.partner_id.id})
+        return res
+    
+    def action_create_sale(self):
+        """Create a new property sale from the property"""
+        self.ensure_one()
+        sale = self.env['property.sale'].create({
+            'name': f"{self.name} - Sale",
+            'property_id': self.id,
+            'partner_id': self.partner_id.id if self.partner_id else False,
+            'start_date': fields.Date.today(),
+            'state': 'draft'
+        })
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Property Sale',
+            'res_model': 'property.sale',
+            'view_mode': 'form',
+            'res_id': sale.id,
+            'target': 'current',
+        }
+
+    def action_view_sales(self):
+        """View all sales related to this property"""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Property Sales',
+            'res_model': 'property.sale',
+            'view_mode': 'tree,form',
+            'domain': [('property_id', '=', self.id)],
+            'context': {'default_property_id': self.id},
+        }
+    def action_view_related_properties(self):
+        """View properties related to the same project"""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Related Properties',
+            'res_model': 'property.property',
+            'view_mode': 'tree,form,kanban',
+            'domain': [('project_name', '=', self.project_name), ('id', '!=', self.id)],
+            'context': {'search_default_group_by_project': 1},
+        }

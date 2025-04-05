@@ -1,80 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <!-- Action for Property Sale -->
-        <record id="action_property_sale" model="ir.actions.act_window">
-            <field name="name">Property Sales</field>
-            <field name="res_model">property.sale</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">
-                    Create your property sales.
-                </p>
-            </field>
-        </record>
 
-        <!-- Tree View for Property Sale -->
+        <!-- Tree View -->
         <record id="view_property_sale_tree" model="ir.ui.view">
             <field name="name">property.sale.tree</field>
             <field name="model">property.sale</field>
             <field name="arch" type="xml">
-                <tree string="Property Sales">
+                <tree string="Property Sales" decoration-info="state == 'draft'" decoration-success="state == 'confirm'" decoration-muted="state == 'cancelled'">
                     <field name="name"/>
-                    <field name="property_id"/>
                     <field name="partner_id"/>
-                    <field name="order_date"/>
+                    <field name="property_id"/>
+                    <field name="seller_id"/>
+                    <field name="property_value" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="total_selling_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="down_payment" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="dld_fee" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="admin_fee" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="remaining_balance" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="payment_progress" widget="progressbar"/>
                     <field name="state"/>
-                    <field name="sale_price"/>
+                    <field name="currency_id" invisible="1"/>
                 </tree>
             </field>
         </record>
 
-        <!-- Form View for Property Sale -->
+        <!-- Form View -->
         <record id="view_property_sale_form" model="ir.ui.view">
             <field name="name">property.sale.form</field>
             <field name="model">property.sale</field>
             <field name="arch" type="xml">
                 <form string="Property Sale">
                     <header>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
-                        <!-- Confirm Button -->
-                        <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
-                                modifiers="draft"/>
-                        <!-- Compute Installments Button -->
-                        <button name="compute_remaining_installments" type="object" string="Compute Installments"
-                                class="btn-secondary" modifiers="confirm"/>
-                        <!-- Create Invoice Button -->
-                        <button name="create_invoice" type="object" string="Create Invoice" class="btn-info"
-                                modifiers="confirm"/>
+                        <button name="action_confirm" string="Confirm Sale" type="object" class="btn btn-success oe_highlight" options="{'invisible': [('state', '!=', 'draft')]}"/>
+                        <button name="action_view_invoices" string="View Invoice" type="object" class="btn btn-success" options="{'invisible': [('state', 'not in', ['invoiced'])]}"/>
+                        <button name="action_cancel" string="Cancel" type="object" class="btn btn-danger" options="{'invisible': [('state', '=', 'cancelled')]}"/>
+                        <button name="action_generate_all_invoices" string="Generate All Invoices" type="object" class="oe_highlight" options="{'invisible': [('state', '!=', 'confirm')]}" confirm="This will generate invoices for all unpaid installments based on their due dates. Continue?"/>
+                        <button name="action_draft" string="Set to Draft" type="object" class="btn btn-secondary" options="{'invisible': [('state', '=', 'draft')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,invoiced,cancelled"/>
                     </header>
                     <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="Sale Reference"/></h1>
+                        </div>
                         <group>
-                            <group>
-                                <field name="name" readonly="1"/>
-                                <field name="property_id"/>
+                            <group string="Customer Information">
                                 <field name="partner_id"/>
-                                <field name="order_date"/>
-                                <field name="currency_id"/>
+                                <field name="currency_id" widget="monetary"/>
+                                <field name="start_date"/>
+                                <field name="sale_date"/>
                             </group>
+                            <group string="Property Information">
+                                <field name="property_id"/>
+                                <field name="seller_id"/>
+                                <field name="property_value" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="total_selling_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="down_payment_percentage"/>
+                                <field name="down_payment" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="dld_fee" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="admin_fee" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </group>
+                        <group string="Payment Plan">
                             <group>
-                                <field name="sale_price" readonly="1"/>
-                                <field name="down_payment"/>
-                                <field name="dld_fee" readonly="1"/>
-                                <field name="remaining_balance" readonly="1"/>
-                                <field name="desired_years"/>
-                                <field name="no_of_installments" readonly="1"/>
-                                <field name="amount_per_installment" readonly="1"/>
+                                <field name="remaining_balance" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="no_of_installments"/>
+                                <field name="amount_per_installment" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="payment_progress" widget="progressbar"/>
+                            </group>
+                            <group string="Broker Information" options="{'invisible': [('broker_commission_percentage', '=', 0)]}">
+                                <field name="broker_commission_percentage"/>
+                                <button name="action_generate_broker_invoice"/>
                             </group>
                         </group>
                         <notebook>
-                            <page string="Installment Payments">
+                            <page string="Payment Schedule" name="payment_schedule">
                                 <field name="property_sale_line_ids">
-                                    <tree editable="bottom">
-                                        <field name="serial_number"/>
-                                        <field name="capital_repayment"/>
-                                        <field name="remaining_capital"/>
-                                        <field name="collection_status"/>
-                                        <field name="collection_amount" readonly="1"/>
+                                    <tree string="Payment Schedule" editable="bottom">
+                                        <field name="serial_number" readonly="1"/>
+                                        <field name="line_type" readonly="1"/>
                                         <field name="collection_date" readonly="1"/>
+                                        <field name="capital_repayment" sum="Total" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                                        <field name="remaining_capital" sum="Remaining" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                                        <field name="collection_status"/>
+                                        <field name="currency_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Broker Invoices" name="broker_invoices" options="{'invisible': [('broker_commission_percentage', '=', 0)]}">
+                                <field name="broker_commission_invoice_ids">
+                                    <tree string="Broker Invoices" decoration-info="state == 'draft'" decoration-success="state == 'invoiced'" decoration-danger="state == 'cancelled'">
+                                        <field name="seller_id"/>
+                                        <field name="commission_percentage"/>
+                                        <field name="commission_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="total_paid" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                        <field name="payment_progress" widget="progressbar"/>
+                                        <field name="state"/>
                                     </tree>
                                 </field>
                             </page>
@@ -84,8 +105,55 @@
             </field>
         </record>
 
-        <!-- Menu item for Property Sale -->
-        <menuitem id="menu_property_sale_root" name="Property Sales" sequence="10"/>
-        <menuitem id="menu_property_sale" name="Sales" parent="menu_property_sale_root" action="action_property_sale" sequence="10"/>
+        <!-- Broker Commission Invoice Views -->
+        <record id="view_broker_commission_invoice_form" model="ir.ui.view">
+            <field name="name">broker.commission.invoice.form</field>
+            <field name="model">broker.commission.invoice</field>
+            <field name="arch" type="xml">
+                <form string="Broker Commission Invoice">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,invoiced,cancelled"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="property_sale_id"/>
+                            <field name="seller_id"/>
+                            <field name="commission_percentage"/>
+                            <field name="commission_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        <group string="Payment Tracking">
+                            <field name="total_invoiced" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                            <field name="total_paid" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/>
+                            <field name="payment_progress" widget="progressbar" readonly="1"/>
+                        </group>
+                        <field name="invoice_ids" readonly="1">
+                            <tree>
+                                <field name="name"/>
+                                <field name="amount_total" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_residual" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="payment_state"/>
+                                <field name="invoice_date"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_broker_commission_invoice_tree" model="ir.ui.view">
+            <field name="name">broker.commission.invoice.tree</field>
+            <field name="model">broker.commission.invoice</field>
+            <field name="arch" type="xml">
+                <tree string="Broker Commission Invoices">
+                    <field name="property_sale_id"/>
+                    <field name="seller_id"/>
+                    <field name="commission_percentage"/>
+                    <field name="commission_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="total_paid" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                    <field name="payment_progress" widget="progressbar"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
     </data>
 </odoo>
